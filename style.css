@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #FF6B35;
+    --secondary-color: #3C3E50;
+    --accent-color: #3498DB;
+    --text-color: #2C3E50;
+    --light-gray: #F8F9FA;
+    --border-color: #E9ECEF;
+    --whit-color: #FFFFFF;
+    --hover-btn: rgba(255,255,255, 0.1);
+}
+
+body {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    align-items: center;
+    background-color: var(--whit-color);
+    display: flex;
+    justify-content: space-around;
+    padding: 1 rem 2rem;
+    position: sticky;
+}
+
+.logo {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+}
+.logo i {
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+.logo h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.search-container {
+    align-items: center;
+    background-color: var(--light-gray);
+    border-radius: 1.5rem;
+    display: flex;
+    margin: 0 2rem;
+    max-width: 500px;
+    padding: 0.5rem 1rem;
+    width: 100%;
+}
+.search-container input {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+    outline: none;
+    width: 100%;
+}
+.search-container i{
+    color: var(--primary-color);
+}
+
+.categories-container {
+    background-color: var(--secondary-color);
+}
+
+.categories-bar {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    max-width: 500%;
+    padding: 0.5rem 2rem;
+    width: 100%;
+}
+
+.category-btn {
+    align-items: center;
+    background: none;
+    border: none;
+    border-radius: 1.5rem;
+    color: var(--whit-color);
+    cursor: pointer;
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+}
+
+.category-btn:hover {
+    background-color: var(--hover-btn);
+}
+.category-btn i {
+    font-size: 1.2rem;
+}
+
+.category-btn.active {
+    background-color: var(--primary-color);
+}
+.hero-section {
+    background: #FF4111;
+    background: linear-gradient(160deg,rgba(255, 65, 17, 1) 0%, rgba(45, 115, 189, 1) 55%);
+    color: var(--whit-color);
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+.hero-section p {
+    padding: 1.2rem;
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: var(--whit-color);
+    padding: 2rem;
+    text-align: center;
+}
