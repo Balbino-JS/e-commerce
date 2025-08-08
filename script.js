@@ -1,3 +1,4 @@
+let textoPesquisa = ""
 let produtos = [
   {
     id: 1,
@@ -90,11 +91,17 @@ let produtos = [
 ];
 
 let contatinerProdutos = document.querySelector(".products-container");
+let input = document.querySelector(".search-input")
 
 function mostrarProdutos() {
   let htmlProducts = "";
 
-  produtos.forEach(prd => {
+  let produtosFiltrados = produtos.filter(prd => {
+    let passouPesquisa = prd.nome.toLowerCase().includes(textoPesquisa.toLowerCase())
+    return passouPesquisa
+  })
+
+  produtosFiltrados.forEach(prd => {
     htmlProducts = htmlProducts + `
         <div class="product-card">
                 <img class="product-img"src="${prd.imagem}" alt="${prd.nome}">
@@ -111,5 +118,11 @@ function mostrarProdutos() {
   contatinerProdutos.innerHTML = htmlProducts
 
 }
+function pesquisar() {
+  textoPesquisa = input.value
+
+  mostrarProdutos ()  
+}
 
 window.onload = mostrarProdutos;
+input.addEventListener('input', pesquisar)
