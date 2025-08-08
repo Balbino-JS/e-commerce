@@ -1,4 +1,5 @@
-let textoPesquisa = ""
+let textoPesquisa = "";
+let categoriaAtual = "all";
 let produtos = [
   {
     id: 1,
@@ -91,18 +92,27 @@ let produtos = [
 ];
 
 let contatinerProdutos = document.querySelector(".products-container");
-let input = document.querySelector(".search-input")
+let input = document.querySelector(".search-input");
+let botoes = document.querySelectorAll(".category-btn");
 
 function mostrarProdutos() {
   let htmlProducts = "";
 
-  let produtosFiltrados = produtos.filter(prd => {
-    let passouPesquisa = prd.nome.toLowerCase().includes(textoPesquisa.toLowerCase())
-    return passouPesquisa
-  })
+  let produtosFiltrados = produtos.filter((prd) => {
+    let passouCategoria =
+      categoriaAtual === "all" || prd.categoria === categoriaAtual;
 
-  produtosFiltrados.forEach(prd => {
-    htmlProducts = htmlProducts + `
+    let passouPesquisa = prd.nome
+      .toLowerCase()
+      .includes(textoPesquisa.toLowerCase());
+
+    return passouPesquisa && passouCategoria;
+  });
+
+  produtosFiltrados.forEach((prd) => {
+    htmlProducts =
+      htmlProducts +
+      `
         <div class="product-card">
                 <img class="product-img"src="${prd.imagem}" alt="${prd.nome}">
                 <div class="product-info">
@@ -112,17 +122,32 @@ function mostrarProdutos() {
                     <button class="product-button">Ver detalhes</button>
                 </div>
             </div>
-        `
-  })
-  
-  contatinerProdutos.innerHTML = htmlProducts
+        `;
+  });
 
+  contatinerProdutos.innerHTML = htmlProducts;
 }
 function pesquisar() {
-  textoPesquisa = input.value
+  textoPesquisa = input.value;
 
-  mostrarProdutos ()  
+  mostrarProdutos();
 }
 
-window.onload = mostrarProdutos;
-input.addEventListener('input', pesquisar)
+function trocarCategoria() {
+  categoriaAtual = categoria;
+
+  mostrarProdutos();
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+  mostrarProdutos();
+  input.addEventListener("input", pesquisar);
+
+  botoes.forEach((botao) => {
+    botao.addEventListener("click", () => {
+      let categoria = botao.getAttribute("data-category");
+
+      trocarCategoria(categoria);
+    });
+  });
+});
