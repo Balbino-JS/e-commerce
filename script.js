@@ -98,10 +98,10 @@ function mostrarProdutos() {
     htmlProducts = htmlProducts + `
         <div class="product-card">
                 <img class="product-img"src="${prd.imagem}" alt="${prd.nome}">
-                <div class="porduct-info">
-                    <h3 class="porduct-name">${prd.nome}</h3>
-                    <p class="porduct-description">${prd.descricao}</p>
-                    <p class="porduct-price">R$ ${prd.preco}</p>
+                <div class="product-info">
+                    <h3 class="product-name">${prd.nome}</h3>
+                    <p class="product-description">${prd.descricao}</p>
+                    <p class="product-price">R$ ${prd.preco}</p>
                     <button class="product-button">Ver detalhes</button>
                 </div>
             </div>
