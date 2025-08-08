@@ -97,12 +97,12 @@ function mostrarProdutos() {
   produtos.forEach(prd => {
     htmlProducts = htmlProducts + `
         <div class="product-card">
-                <img src="${prd.imagem}" alt="${prd.nome}">
+                <img class="product-img"src="${prd.imagem}" alt="${prd.nome}">
                 <div class="porduct-info">
                     <h3 class="porduct-name">${prd.nome}</h3>
-                    <p class="porduct-descrition">${prd.descricao}</p>
+                    <p class="porduct-description">${prd.descricao}</p>
                     <p class="porduct-price">R$ ${prd.preco}</p>
-                    <button class="porduct-button">Ver detalhes</button>
+                    <button class="product-button">Ver detalhes</button>
                 </div>
             </div>
         `
