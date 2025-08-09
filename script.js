@@ -133,8 +133,16 @@ function pesquisar() {
   mostrarProdutos();
 }
 
-function trocarCategoria() {
+function trocarCategoria(categoria) {
   categoriaAtual = categoria;
+
+  botoes.forEach((botao) => {
+    botao.classList.remove("active");
+
+    if (botao.getAttribute("data-category") === categoria) {
+      botao.classList.add("active");
+    }
+  });
 
   mostrarProdutos();
 }
